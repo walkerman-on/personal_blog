@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+    all: unset;
+    display: revert;
+    list-style: none;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+    background: rgba(236, 241, 244, 0.5);
+    display: flex;
+    flex-direction: column;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--color-black);
+}
+
+#root {
+    padding: 10px 20px 40px 20px;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.post {
+    padding: 10px;
+    background: white;
+    border-top: 4px solid #FFA429;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.post__content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.primaryText {
+    font-weight: 600;
+}
+
+.secondaryText {
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.button-text {
+    text-transform: uppercase;
+    font-size: 12px;
+    color: rgba(0, 57, 92, 0.8);
+
+}
+
+.delete-button {
+    background: rgba(0, 66, 105, 0.07);
+    border-radius: 4px; 
+    height: 30px;
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.delete-button:hover{
+    opacity: 0.8;
+}
