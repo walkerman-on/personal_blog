@@ -1,11 +1,12 @@
 import React from "react"
 
-const Post = (props) => {
+const PostItem = (props) => {
+
     return (
         <div className="post">
             <div className="post__content">
-              <span className="primaryText">1. JavaScript</span>
-              <span className="secondaryText">JavaScript - язык программирования</span>
+              <span className="primaryText">{props.post.id}. {props.post.title}</span>
+              <span className="secondaryText">{props.post.description}</span>
         
             </div>
             <div className="post__delete">
@@ -17,5 +18,5 @@ const Post = (props) => {
     )
 }
 
-export default Post
+export default PostItem
 

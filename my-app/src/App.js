@@ -1,19 +1,20 @@
-import React, { useState } from "react"
-// import Counter from "./components/Counter"
+import React, {useState} from "react"
 import "./components/styles/App.css"
-import Post from "./components/Post"
+import ListItem from "./components/ListItem";
 
 function App() {
 
-  const [post, postSet] = useState( [
-    {id: 1, title: "Javascript 1", description: "Описание"},
-    {id: 2, title: "Javascript 2", description: "Описание"},
-    {id: 3, title: "Javascript 3", description: "Описание"},
+  const [lists, setList] = useState([
+    {id:1, name: "Список постов"},
+    {id:2, name: "Список постов"},
+    {id:3, name: "Список постов"},
   ])
 
   return (
     <div className="app">
-      <Post/>
+     {lists.map((list) =>
+       <ListItem list = {list} />
+     )}
     </div>
   )
 }
