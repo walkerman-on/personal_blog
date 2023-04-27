@@ -1,0 +1,22 @@
+.myBtn {
+    text-transform: uppercase;
+    font-size: 12px;
+    color: rgba(0, 57, 92, 0.8);
+    background: rgba(0, 66, 105, 0.07);
+    border-radius: 4px; 
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.textBtn {
+    font-weight: 700;
+}
+
+.myBtn:hover {
+    opacity: 0.8;
+}
+
+.myBtn:disabled {
+    opacity: 0.6;
+}

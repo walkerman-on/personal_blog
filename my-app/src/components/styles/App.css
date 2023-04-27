@@ -31,6 +31,11 @@ body {
     gap: 15px;
 }
 
+.formMain {
+    display: flex;
+    gap: 10px
+}
+
 .list {
     display: flex;
     flex-direction: column;
@@ -60,6 +65,7 @@ body {
 
 .postTitle {
     text-align: center;
+    font-size: 30px;
 }
 
 .secondaryText {
