@@ -1,9 +1,8 @@
 import React, {useState} from "react"
 import "./components/styles/App.css"
 import ListItem from "./components/ListItem";
-import MyButton from "./components/UI/button/MyButton";
-import MyInput from "./components/UI/input/MyInput";
 import PostForm from "./components/PostForm"
+import MySelect from "./components/UI/select/MySelect";
 
 function App() {
 
@@ -18,11 +17,26 @@ function App() {
     setPosts([...posts, newPost])
   }
 
+  const removePost = (post) => {
+    setPosts(posts.filter(item => item.id !== post.id))
+}
+
 
   return (
     <div className="app">
       <PostForm create = {createForm}/>
-      <ListItem post = {posts} title = "Список постов 1"/>
+      <MySelect 
+        defaultValue = "Сортировка"
+        options = {[
+          {name: "По названию", value: "title"},
+          {name: "По описанию", value: "body"}
+        ]}
+      />
+      {posts.length !== 0
+      ? <ListItem remove = {removePost} post = {posts} title = "Список постов 1"/>
+      : <div className="primaryText postTitle">Для создания поста введите название и описание поста</div>
+      }
+      
     </div>
   )
 }

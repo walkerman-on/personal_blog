@@ -45,7 +45,7 @@ body {
 .post {
     padding: 10px;
     background: white;
-    border-top: 4px solid #FFA429;
+    border-top: 4px solid rgba(0, 66, 105, 0.1);
     border-radius: 4px;
     display: flex;
     align-items: center;

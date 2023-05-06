@@ -12,13 +12,10 @@ const PostForm = ({create}) => {
         const newPost = {
             ...post, id: Date.now()
         }
-
         create(newPost)
         setPost({title: "", body:""})
       }
-
-
-
+      
     return (
 <form className="formMain">
         <MyInput
@@ -31,7 +28,6 @@ const PostForm = ({create}) => {
             onChange = {event => setPost({...post, body: event.target.value})}
             type = "text" 
             placeholder="Описание поста"/>
-      
         <MyButton onClick = {addNewPost}>Создать пост</MyButton>
       </form>
     );
