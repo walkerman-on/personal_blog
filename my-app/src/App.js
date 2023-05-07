@@ -7,9 +7,9 @@ import MySelect from "./components/UI/select/MySelect";
 function App() {
 
   const [posts, setPosts] = useState( [
-    {id: 1, title: "Javascript 1", description: "Описание"},
-    {id: 2, title: "Javascript 2", description: "Описание"},
-    {id: 3, title: "Javascript 3", description: "Описание"},
+    {id: 1, title: "«Краснодар» одержал победу над «Крыльями Советов» в матче РПЛ, играя в большинстве с 32-й минуты.", description: "Описание"},
+    {id: 2, title: "Один из самых успешных певцов в мире войдет в Зал славы рок-н-ролла.", description: "Описание"},
+    {id: 3, title: "Звезду фильма Челюсти Ричарда Дрейфусса тошнит от новых правил Оскара.", description: "Описание"},
   ])
 
   //Функция обратного вызова в PostForm
