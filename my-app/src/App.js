@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState, useMemo} from "react"
 import "./components/styles/App.css"
 import ListItem from "./components/ListItem";
 import PostForm from "./components/PostForm"
@@ -23,18 +23,25 @@ function App() {
 }
 
   const [selectedSort, setSelectedSort] = useState("")
+  const [searchQuery, setSearchQuery] = useState("")
 
   const sortPosts = (sort) => {
     setSelectedSort(sort)
-    setPosts([...posts].sort((a,b) => a[sort].localeCompare(b[sort])))
   }
 
-  const [searchQuery, setSearchQuery] = useState("")
+  const sortedPosts = useMemo(() => {
+    console.log("Функция отработала")
+    if (selectedSort) {
+      [...posts].sort((a,b) => a[selectedSort].localeCompare(b[selectedSort]))
+    }
+    return posts
+  }, [selectedSort, posts])
+
 
   return (
     <div className="app">
       <PostForm create = {createForm}/>
-      <div className = "">
+      <div className = "menu_search">
         <MyInput
           placeholder = "Поиск..."
           value = {searchQuery}
@@ -43,17 +50,18 @@ function App() {
         <MySelect 
           value = {selectedSort}
           onChange={sortPosts}
-          defaultValue = "Сортировка"
+          defaultValue = "Сортировка ▼"
           options = {[
             {name: "По названию", value: "title"},
             {name: "По описанию", value: "body"}
           ]}
         />
-        {posts.length !== 0
-        ? <ListItem remove = {removePost} post = {posts} title = "Список постов 1"/>
-        : <div className="primaryText postTitle">Для создания поста введите название и описание поста</div>
-        }
       </div>
+        {posts.length !== 0
+        ? <ListItem remove = {removePost} post = {sortedPosts} title = "Список постов"/>
+        : <div className="primaryText postTitle">Для создания поста введите  
+          <span className="primaryText"> название</span> и <span className="primaryText">описание</span> поста</div>
+        }
     </div>
   )
 }
