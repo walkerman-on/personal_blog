@@ -3,6 +3,7 @@ import "./components/styles/App.css"
 import ListItem from "./components/ListItem";
 import PostForm from "./components/PostForm"
 import MySelect from "./components/UI/select/MySelect";
+import MyInput from "./components/UI/input/MyInput";
 
 function App() {
 
@@ -21,22 +22,38 @@ function App() {
     setPosts(posts.filter(item => item.id !== post.id))
 }
 
+  const [selectedSort, setSelectedSort] = useState("")
+
+  const sortPosts = (sort) => {
+    setSelectedSort(sort)
+    setPosts([...posts].sort((a,b) => a[sort].localeCompare(b[sort])))
+  }
+
+  const [searchQuery, setSearchQuery] = useState("")
 
   return (
     <div className="app">
       <PostForm create = {createForm}/>
-      <MySelect 
-        defaultValue = "Сортировка"
-        options = {[
-          {name: "По названию", value: "title"},
-          {name: "По описанию", value: "body"}
-        ]}
-      />
-      {posts.length !== 0
-      ? <ListItem remove = {removePost} post = {posts} title = "Список постов 1"/>
-      : <div className="primaryText postTitle">Для создания поста введите название и описание поста</div>
-      }
-      
+      <div className = "">
+        <MyInput
+          placeholder = "Поиск..."
+          value = {searchQuery}
+          onChange = {e => setSearchQuery(e.target.value)}
+        />
+        <MySelect 
+          value = {selectedSort}
+          onChange={sortPosts}
+          defaultValue = "Сортировка"
+          options = {[
+            {name: "По названию", value: "title"},
+            {name: "По описанию", value: "body"}
+          ]}
+        />
+        {posts.length !== 0
+        ? <ListItem remove = {removePost} post = {posts} title = "Список постов 1"/>
+        : <div className="primaryText postTitle">Для создания поста введите название и описание поста</div>
+        }
+      </div>
     </div>
   )
 }
