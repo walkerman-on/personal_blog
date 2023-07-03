@@ -30,13 +30,15 @@ function App() {
   }
 
   const sortedPosts = useMemo(() => {
-    console.log("Функция отработала")
     if (selectedSort) {
       [...posts].sort((a,b) => a[selectedSort].localeCompare(b[selectedSort]))
     }
     return posts
   }, [selectedSort, posts])
 
+  const sortedAndSearchedPosts = useMemo(() => {
+    return sortedPosts.filter(post => post.title.toLowerCase().includes(searchQuery.toLowerCase()))
+  }, [searchQuery, sortedPosts])
 
   return (
     <div className="app">
@@ -57,10 +59,13 @@ function App() {
           ]}
         />
       </div>
-        {posts.length !== 0
-        ? <ListItem remove = {removePost} post = {sortedPosts} title = "Список постов"/>
-        : <div className="primaryText postTitle">Для создания поста введите  
-          <span className="primaryText"> название</span> и <span className="primaryText">описание</span> поста</div>
+        {sortedAndSearchedPosts.length !== 0
+        ? <ListItem 
+            remove = {removePost} 
+            post = {sortedAndSearchedPosts} 
+            title = "Список постов"
+          />
+        : <div className="primaryText postTitle">Посты <span className="primaryText">не найдены!</span></div>
         }
     </div>
   )
