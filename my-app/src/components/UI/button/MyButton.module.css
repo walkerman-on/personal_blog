@@ -5,6 +5,8 @@
     padding: 10px 20px;
     text-align: center;
     cursor: pointer;
+    max-width: 100px;
+
 }
 
 .textBtn {

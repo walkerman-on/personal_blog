@@ -3,6 +3,8 @@ import "./components/styles/App.css"
 import ListItem from "./components/ListItem";
 import PostForm from "./components/PostForm"
 import PostFilter from "./components/PostFilter";
+import MyModal from "./components/UI/modal/MyModal"
+import MyButton from "./components/UI/button/MyButton";
 
 function App() {
 
@@ -15,6 +17,7 @@ function App() {
   //Функция обратного вызова в PostForm
   const createForm = (newPost) => {
     setPosts([...posts, newPost])
+    setModal(false)
   }
 
   const removePost = (post) => {
@@ -34,21 +37,25 @@ function App() {
     return sortedPosts.filter(post => post.title.toLowerCase().includes(filter.query.toLowerCase()))
   }, [filter.query, sortedPosts])
 
+  const [modal, setModal] = useState(false);
+
   return (
     <div className="app">
-      <PostForm create = {createForm}/>
+      <MyButton onClick = {() => setModal(true)}>
+        Создать пост
+      </MyButton>
+      <MyModal visible = {modal} setVisible = {setModal}>
+        <PostForm create = {createForm}/>
+      </MyModal>
       <PostFilter 
         filter = {filter} 
         setFilter={setFilter} 
       />
-      {sortedAndSearchedPosts.length !== 0
-      ? <ListItem 
+      <ListItem 
           remove = {removePost} 
           post = {sortedAndSearchedPosts} 
           title = "Список постов"
-        />
-      : <div className="primaryText postTitle">Посты <span className="primaryText">не найдены!</span></div>
-      }
+      />
     </div>
   )
 }

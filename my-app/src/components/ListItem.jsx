@@ -2,6 +2,12 @@ import React from 'react';
 import PostItem from './PostItem';
 
 const ListItem = ({post, title, remove}) => {
+
+    if (!post.length) {
+        return (
+            <div className="primaryText postTitle">Посты <span className="primaryText">не найдены!</span></div>
+        )
+    }
     return (
         <div className='list'>
             <h1 className="primaryText postTitle">{title}</h1>
@@ -12,4 +18,4 @@ const ListItem = ({post, title, remove}) => {
     );
 };
 
-export default ListItem;
+export default ListItem; 
