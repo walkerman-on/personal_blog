@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "react-scripts": "^2.1.8"
+    "react-scripts": "^2.1.8",
+    "react-transition-group": "^4.4.5"
   }
 }

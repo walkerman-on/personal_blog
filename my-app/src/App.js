@@ -5,6 +5,7 @@ import PostForm from "./components/PostForm"
 import PostFilter from "./components/PostFilter";
 import MyModal from "./components/UI/modal/MyModal"
 import MyButton from "./components/UI/button/MyButton";
+// import MyIcon from "./components/UI/icon/MyIcon";
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
 
   return (
     <div className="app">
+      {/* <MyIcon fill="#fff"/> */}
       <MyButton onClick = {() => setModal(true)}>
         Создать пост
       </MyButton>

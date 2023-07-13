@@ -1,0 +1,18 @@
+.myBtn {
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background: rgba(52,58,70,.8);
+    border-radius: 12px;
+}
+
+.myBtn:hover {
+    background: #bb2d3b;
+}
+
+.myBtn:disabled {
+    opacity: 0.6;
+}
