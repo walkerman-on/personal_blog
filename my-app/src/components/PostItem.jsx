@@ -10,7 +10,7 @@ const PostItem = (props) => {
               <span className="secondaryText">{props.post.body}</span>
             </div>
             <div className="post__delete">
-            <DeleteButton onClick = {() => props.remove(props.post)}><span class = "deleteBtn">+</span></DeleteButton>
+            <DeleteButton onClick = {() => props.remove(props.post)}><span className = "deleteBtn">+</span></DeleteButton>
             </div>
       </div>
     )
