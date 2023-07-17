@@ -28,7 +28,7 @@ const PostForm = ({create}) => {
             onChange = {event => setPost({...post, body: event.target.value})}
             type = "text" 
             placeholder="Описание поста"/>
-        <MyButton onClick = {addNewPost}>Создать</MyButton>
+        <MyButton disabled = {!post.title || !post.body} onClick = {addNewPost}>Создать</MyButton>
       </form>
     );
 };

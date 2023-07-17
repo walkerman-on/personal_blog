@@ -1,7 +1,7 @@
 .myInpt {
     width: 100%;
     font-size: 12px;
-    background: rgba(52,58,70,.8);
+    background: rgba(52,58,70);
     border: 1.5px solid #23272f;
     color: white;
     border-radius: 10px; 
@@ -11,6 +11,6 @@
 }
 
 .myInpt:focus {
-    opacity: 0.7;
-    outline: 2px solid #149eca;
+    /* opacity: 0.7; */
+    outline: 2px solid #3a7999;
 }

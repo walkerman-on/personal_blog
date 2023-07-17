@@ -5,20 +5,27 @@ import PostForm from "./components/PostForm"
 import PostFilter from "./components/PostFilter";
 import MyModal from "./components/UI/modal/MyModal"
 import MyButton from "./components/UI/button/MyButton";
+import Loader from "./components/UI/loader/Loader"
+import ErrorMessage from "./components/UI/errorMessage/ErrorMessage"
 // import MyIcon from "./components/UI/icon/MyIcon";
 import {usePosts} from "./hooks/usePosts"
 import PostService from "./API/PostService";
+import { useFetching } from "./hooks/useFetching";
 
 function App() {
   const [posts, setPosts] = useState([])
   const [filter, setFilter] = useState({sorting: "", query: ""})
   const [modal, setModal] = useState(false);
-  const sortedAndSearchedPosts = usePosts(posts, filter.sorting, filter.query)
-  
+  const sortedAndSearchedPosts = usePosts(posts, filter.sorting, filter.query);
+  const [fetchPosts, IsPostsLoading, postError] = useFetching(async () => {
+    const posts = await PostService.getAll()
+    setPosts(posts)
+  })
+
   useEffect(() => {
     fetchPosts()
   }, [])
-
+  
  //Функция обратного вызова в PostForm
   const createForm = (newPost) => {
     setPosts([...posts, newPost])
@@ -29,14 +36,8 @@ function App() {
   setPosts(posts.filter(item => item.id !== post.id))
   }
 
-  async function fetchPosts() {
-    const posts = await PostService.getAll()
-    setPosts(posts)
-  }
-
   return (
     <div className="app">
-      <MyButton onClick = {fetchPosts}>GET POSTS</MyButton>
       {/* <MyIcon fill="#fff"/> */}
       <MyButton onClick = {() => setModal(true)}>
         Создать пост
@@ -48,11 +49,17 @@ function App() {
         filter = {filter} 
         setFilter={setFilter} 
       />
-      <ListItem 
+      {postError &&
+        <ErrorMessage textError = {postError}/>
+      }
+      {IsPostsLoading 
+        ? <div style = {{position: "absolute",top: "50%", left: "50%", marginRight: "-50%",transform:" translate(-50%, -50%)" }}><Loader/></div>
+        : <ListItem 
           remove = {removePost} 
           post = {sortedAndSearchedPosts} 
           title = "Список постов"
-      />
+          />
+      }
     </div>
   )
 }

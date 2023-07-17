@@ -1,4 +1,4 @@
-.myBtn {
+/* .myBtn {
     text-transform: uppercase;
     color: white;
     text-align: center;
@@ -15,4 +15,40 @@
 
 .myBtn:disabled {
     opacity: 0.6;
-}
+} */
+
+
+
+
+
+.myBtn:disabled {
+    /* opacity: 0.6; */
+    /* background: rgba(52,58,70,.8); */
+    background: #bb2d3b;
+  }
+  
+  .myBtn {
+    text-transform: uppercase;
+    /* background: #3a7999; */
+    background: rgba(52,58,70);
+    
+    color: #f2f2f2;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    max-width: 140px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    box-sizing: border-box;
+    transition: all 250ms ease;
+  }
+  
+  .myBtn:hover {
+    background: rgba(0, 0, 0, 0);
+    color: #bb2d3b;
+    box-shadow: inset 0 0 0 3px #bb2d3b;
+  }
+  
