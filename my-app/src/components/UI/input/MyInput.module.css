@@ -1,16 +1,15 @@
 .myInpt {
-    width: 100%;
-    font-size: 12px;
-    background: rgba(52,58,70);
-    border: 1.5px solid #23272f;
-    color: white;
-    border-radius: 10px; 
     padding: 10px 20px;
+    width: 100%;
+    border: 1.5px solid var(--main-bg-color);
+    border-radius: 10px; 
+    background: var(--gray-color);
+    color: var(--white-color);
+    font-size: 12px;
     text-align: center;
     cursor: pointer;
 }
 
 .myInpt:focus {
-    /* opacity: 0.7; */
-    outline: 2px solid #3a7999;
+    outline: 2px solid var(--main-blue-color);
 }

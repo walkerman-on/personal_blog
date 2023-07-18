@@ -5,15 +5,15 @@
     right: 0;
     bottom: 0;
     display: none;
-    background: rgba(0,0,0,0.5);
+    background: var(--dark-gray-alfa20-color);
 }
 
 .myModalContent {
     padding: 30px 40px 10px 40px;
     min-width: 400px;
+    border-radius: 10px;
     background: #16181d;
-    border-radius: 15px;
-    color: white;
+    color: var(--white-color);
 }
 
 .myModal.active {

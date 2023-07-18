@@ -10,16 +10,25 @@ import ErrorMessage from "./components/UI/errorMessage/ErrorMessage"
 // import MyIcon from "./components/UI/icon/MyIcon";
 import {usePosts} from "./hooks/usePosts"
 import PostService from "./API/PostService";
-import { useFetching } from "./hooks/useFetching";
+import {useFetching} from "./hooks/useFetching";
+import {getPageCount, getPagesArray} from "./utils/pages"
 
 function App() {
   const [posts, setPosts] = useState([])
   const [filter, setFilter] = useState({sorting: "", query: ""})
   const [modal, setModal] = useState(false);
+  const [totalPages, setTotalPages] = useState(0);
+  const [limit, setLimit] = useState(10);
+  const [page, setPage] = useState(1);
   const sortedAndSearchedPosts = usePosts(posts, filter.sorting, filter.query);
+
+  let pagesArray = getPagesArray(totalPages)
+
   const [fetchPosts, IsPostsLoading, postError] = useFetching(async () => {
-    const posts = await PostService.getAll()
-    setPosts(posts)
+    const response = await PostService.getAll(limit, page)
+    setPosts(response.data)
+    const totalCount = response.headers["x-total-count"]
+    setTotalPages(getPageCount(totalCount, limit))
   })
 
   useEffect(() => {
@@ -53,13 +62,19 @@ function App() {
         <ErrorMessage textError = {postError}/>
       }
       {IsPostsLoading 
-        ? <div style = {{position: "absolute",top: "50%", left: "50%", marginRight: "-50%",transform:" translate(-50%, -50%)" }}><Loader/></div>
+        ? <div className = "loaderContainer"><Loader/></div>
         : <ListItem 
           remove = {removePost} 
           post = {sortedAndSearchedPosts} 
           title = "Список постов"
           />
       }
+      <div className = "pageNumber">
+        {pagesArray.map(number => 
+          // <span className = {page === number ? "page page__current" : "page"}>{number}</span>
+          <MyButton className = {page === number ? "page__current" : "scsc"}>{number}</MyButton>
+        )}
+      </div>
     </div>
   )
 }
