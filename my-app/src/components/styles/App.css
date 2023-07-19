@@ -38,6 +38,11 @@ body {
     padding: 40px 250px;
 }
 
+.navbar {
+    display: flex;
+    margin-bottom: 30px;
+}
+
 .app {
     display: flex;
     flex-direction: column;
