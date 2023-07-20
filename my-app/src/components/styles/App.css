@@ -40,6 +40,8 @@ body {
 
 .navbar {
     display: flex;
+    gap: 10px;
+    justify-content: flex-end;
     margin-bottom: 30px;
 }
 
@@ -123,6 +125,11 @@ body {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+
+.post__delete {
+    display: flex;
+    gap: 10px;
 }
 
 .loaderContainer {
