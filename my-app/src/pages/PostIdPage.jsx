@@ -39,7 +39,7 @@ const PostIdPage = () => {
                 : <div className= 'list'>
                     {comment.map((comm, index) => {
                         return (
-                           <Comments comments = {comm} number = {index + 1}/>
+                           <Comments comments = {comm} key = {index + 1}/>
                         )
   
                     })}

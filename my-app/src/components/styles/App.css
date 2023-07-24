@@ -37,12 +37,20 @@ body {
 
 #root {
     padding: 40px 250px;
+    display: flex;
+    flex-direction: column;
 }
 
-.navbar {
+.navbar_menu {
     display: flex;
     gap: 10px;
-    justify-content: flex-end;
+    align-items: center;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 30px;
 }
 
@@ -192,4 +200,41 @@ body {
     font-weight: 500;
     font-size: 14px;
     color: var(--main-blue-color);
+}
+
+.circle {
+    background: var(--main-bg-color);
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+.login_menu {
+    margin-top: 90px;
+    padding: 20px 10px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background: var(--black-color);
+    max-width: 400px;
+}
+
+.login_menu-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.login_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    /* max-width: 400px; */
 }
