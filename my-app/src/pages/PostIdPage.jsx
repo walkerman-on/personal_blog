@@ -36,7 +36,7 @@ const PostIdPage = () => {
             <h1 className="primaryText postTitle">Комментарии</h1>
             {isComLoading
                 ? <div className = "loaderContainer2"><Loader/></div>
-                : <div>
+                : <div className= 'list'>
                     {comment.map((comm, index) => {
                         return (
                            <Comments comments = {comm} number = {index + 1}/>
