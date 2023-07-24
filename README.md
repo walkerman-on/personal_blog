@@ -1,2 +1,3 @@
-# training_project_React
+⚡️ This is personal blog with a lot of functional
+
  
