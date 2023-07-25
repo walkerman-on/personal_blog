@@ -4,10 +4,15 @@ import {privateRoutes, publicRoutes} from "../router/routes"
 import NotFound from "../pages/NotFound";
 import Login from "../pages/Login"
 import Posts from "../pages/Posts"
+import Loader from "../components/UI/loader/Loader"
 import { AuthContext } from '../context/context';
 
 const AppRouter = () => {
-    const {isAuth, setIsAuth} = useContext(AuthContext)
+    const {isAuth, setIsAuth, isLoading} = useContext(AuthContext)
+
+    if (isLoading) {
+        return <Loader/>
+    }
     
     return (
             isAuth
