@@ -15,7 +15,6 @@ Before using, it is necessary to install React libraries as [React Transition Gr
 # npm install --save react-router-dom
 
 # npm install axios
-
 ```
 
 ## 🚀 Usage
