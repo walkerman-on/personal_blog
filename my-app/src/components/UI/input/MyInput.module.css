@@ -1,0 +1,15 @@
+.myInpt {
+    padding: 10px 20px;
+    width: 100%;
+    border: 1.5px solid var(--main-bg-color);
+    border-radius: 10px; 
+    background: var(--gray-color);
+    color: var(--white-color);
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.myInpt:focus {
+    outline: 2px solid var(--main-blue-color);
+}
