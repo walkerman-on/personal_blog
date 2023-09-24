@@ -1,20 +1,23 @@
-# 🗂️ To Do App 
+# 📑 Personal Blog
 
-This is a To Do App with various functionality.
+This is a personal blog with various functionality such as creating and deleting posts, filtering posts by title and description, searching for posts, displaying posts on a page in a given number, dynamic pagination. It also provides viewing of posts and comments only for registered users.
 
 ## 👾 Demo
+![Untitled-video-Made-with-Clipchamp](https://github.com/walkerman-on/personal-blog/assets/82907949/d7028c91-b36c-4e2e-a1e9-521329477597)
 
-As the functionality is added, the demo will expand.
-<img width="1433" alt="Снимок экрана 2023-07-31 в 22 28 30" src="https://github.com/walkerman-on/request-board/assets/82907949/1de77ccf-b856-4ae2-a1d1-2cb5bbb04234">
-<img width="1440" alt="Снимок экрана 2023-08-02 в 19 13 56" src="https://github.com/walkerman-on/request-board/assets/82907949/165a9fd4-88e6-45fd-8784-beff36b1ae78">
 
 
 ## 💽 Installation
-Will be soon...
+Before using, it is necessary to install React libraries as React Transition Group, react-router-dom, axios.
+```bash
+# npm install react-transition-group --save
+# npm install --save react-router-dom
+# npm install axios
+```
 
 ## 🚀 Usage
 ```bash
-# yarn start
+# npm start
 ```
 
 ## 💻 Languages and Tools:
